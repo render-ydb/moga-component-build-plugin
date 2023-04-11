@@ -1,0 +1,33 @@
+{
+  "name": "render-build-react-component-plugin",
+  "version": "1.0.0",
+  "description": "#### Description 基于render-builder封装的编译react组件的build-plugin",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "tsc -w",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/mvc_ydb_admin/render-build-react-component-plugin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^18.15.11",
+    "render-builder": "file:../render/packages/render-builder",
+    "typescript": "^4.9.5",
+    "webpack-chain": "^6.5.1"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "glob": "^10.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.5",
+    "react-dev-utils": "^12.0.1",
+    "render-build-base-config": "file:../render/packages/render-build-base-config"
+  }
+}
