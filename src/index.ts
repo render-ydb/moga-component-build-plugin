@@ -5,9 +5,6 @@ import {
 import setSassStyleExpanded = require('./utils/setSassStyleExpanded');
 import getDemoPath = require('./utils/getDemoPath');
 
-import getRightEntryExtname = require('./utils/getRightEntryExtname')
-import path = require('path');
-import fs = require("fs-extra");
 import baseConfig = require("./configs/base");
 import devConfig = require("./configs/dev");
 import buildConfig = require("./configs/build");
@@ -20,12 +17,8 @@ export default class BuildComponentPlugin extends PluginClass {
             context,
             log,
             hooks,
-            getAllWebpackConfigs,
-            setBuilderValue,
-            getBuilderValue
         } = complier;
         const { command, pkg, commandArgs, rootDir } = context;
-        const { htmlInjection, library, compileOptions } = options;
         const { https } = commandArgs;
 
         // 得到基础配置
