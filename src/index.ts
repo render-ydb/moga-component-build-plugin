@@ -4,7 +4,7 @@ import {
 } from 'render-build-base-config';
 import setSassStyleExpanded = require('./utils/setSassStyleExpanded');
 import getDemoPath = require('./utils/getDemoPath');
-import getDemoEntryFilename = require('./utils/getDemoEntryFilename');
+
 import getRightEntryExtname = require('./utils/getRightEntryExtname')
 import path = require('path');
 import fs = require("fs-extra");
@@ -16,8 +16,14 @@ const openBrowser = require('react-dev-utils/openBrowser');
 
 export default class BuildComponentPlugin extends PluginClass {
     run(complier: Complier, config: Config, options: Json) {
-        console.log("插件的options", options)
-        const { context, log, hooks } = complier;
+        const {
+            context,
+            log,
+            hooks,
+            getAllWebpackConfigs,
+            setBuilderValue,
+            getBuilderValue
+        } = complier;
         const { command, pkg, commandArgs, rootDir } = context;
         const { htmlInjection, library, compileOptions } = options;
         const { https } = commandArgs;
@@ -30,20 +36,14 @@ export default class BuildComponentPlugin extends PluginClass {
         const demoDir = getDemoPath(rootDir);
         if (demoDir) {
 
-            console.log("webpackConfig", webpackConfig.toConfig().module);
-            // 设置相关的入口文件
             const params = {
                 rootDir,
                 pkg,
                 https,
-                entry: {},
                 demoDir
             };
 
-            const entryFileName = getDemoEntryFilename(path.resolve(rootDir, demoDir));
-            console.log("entryFileName", entryFileName)
-            const entryPath = path.join(rootDir, demoDir, entryFileName);
-            params.entry = { index: entryPath };
+
             baseConfig(config, params);
             if (command === 'start') {
                 // component dev
@@ -53,10 +53,7 @@ export default class BuildComponentPlugin extends PluginClass {
                 buildConfig(config, params);
             }
 
-            // const extNames = getRightEntryExtname(path.resolve(rootDir, 'src/'));
-            // console.log("extNames", extNames)
-          
-           
+
 
             // @ts-ignore
             hooks.afterStartCompile.tap('afterStartCompile', ({ url, stats }) => {

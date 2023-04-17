@@ -1,33 +1,23 @@
 import path = require('path');
 import { Json } from 'render-builder';
 import Chain from 'webpack-chain';
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 interface BaseOptions  {
   pkg: Json;
   rootDir:string;
-  entry:Json;
   demoDir:string
 }
 
 export = (config: Chain, {
   pkg,
   rootDir,
-  entry,
   demoDir
 }:BaseOptions) => {
   config.target('web');
   config.context(rootDir);
 
-  // modify entry
-  config.entryPoints.clear();
-  config.merge({ entry });
-  config.plugin('HtmlWebpackPlugin').use(HtmlWebpackPlugin, [
-    {
-      template: require.resolve(path.resolve(rootDir,demoDir,'index.html')),
-      filename: 'index.html',
-    },
-  ]);
+
 
 
 
