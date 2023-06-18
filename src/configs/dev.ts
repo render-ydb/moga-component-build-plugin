@@ -2,26 +2,23 @@ import setAssetsPath = require('../utils/setAssetsPath');
 import { Json } from 'render-builder';
 import Chain from 'webpack-chain';
 import path = require('path');
-import getDemoEntryFilename = require('../utils/getDemoEntryFilename');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+import createDemoPathAndEntryPath = require('../utils/createDemoPathAndEntryPath');
+import { APP_DEMO_DIR_PATH } from '../const';
 export = (config: Chain, options: Json) => {
     const { https, rootDir, demoDir } = options;
-    // modify entry
-    const entryFileName = getDemoEntryFilename(path.resolve(rootDir as string, demoDir as string));
-    const entryPath = path.join(rootDir as string, demoDir as string, entryFileName);
     config.entryPoints.clear();
-    config.merge({ entry: { index: entryPath } });
-
+    createDemoPathAndEntryPath();
+    config.merge({ entry: { index: APP_DEMO_DIR_PATH } });
     config.plugin('HtmlWebpackPlugin').use(HtmlWebpackPlugin, [
         {
-            template: require.resolve(path.resolve(rootDir as string, demoDir as string, 'index.html')),
+            template: path.resolve(path.dirname(__dirname),"template","index.html"),
             filename: 'index.html',
         },
     ]);
-
-
+  
     setAssetsPath(config, { js: 'js', css: 'css' });
-    // config loglevel
+  
     config.merge({
         devServer: {
             //   logLevel: 'silent',

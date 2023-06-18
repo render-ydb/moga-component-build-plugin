@@ -1,7 +1,7 @@
 import { Complier, Json, Config, PluginClass } from 'render-builder';
 import {
     getWebpackConfig
-} from 'render-build-base-config';
+} from 'moga-app-base-webpack-config';
 import setSassStyleExpanded = require('./utils/setSassStyleExpanded');
 import getDemoPath = require('./utils/getDemoPath');
 
@@ -41,6 +41,7 @@ export default class BuildComponentPlugin extends PluginClass {
             if (command === 'start') {
                 // component dev
                 devConfig(config, params);
+                
             } else if (command === 'build') {
                 // component build
                 buildConfig(config, params);

@@ -25,15 +25,15 @@ export = (config: Chain, {
     .add('node_modules')
     .add(path.join(rootDir, 'node_modules'))
     .add(path.resolve(__dirname, '../../node_modules'));
-
-  ['jsx', 'tsx'].forEach((rule) => {
-    config.module
-      .rule(rule)
-      .exclude.clear()
-      .add(/node_modules/)
-      .end()
-      .use('babel-loader')
-  });
+   
+  // ['jsx', 'tsx'].forEach((rule) => {
+  //   config.module
+  //     .rule(rule)
+  //     .exclude.clear()
+  //     .add(/node_modules/)
+  //     .end()
+  //     .use('babel-loader')
+  // });
 
   // disable vendor
   config.optimization.splitChunks({ cacheGroups: {} });
@@ -47,6 +47,6 @@ export = (config: Chain, {
   });
   config.resolve.alias.set(`${pkg.name}$`, path.resolve(rootDir, 'src/index'));
 
-  config.module.rule('jsx').test(/\.jsx?$/); // Issue: https://github.com/webpack/webpack/issues/4411
+  // config.module.rule('jsx').test(/\.jsx?$/); // Issue: https://github.com/webpack/webpack/issues/4411
   config.output.filename('[name].js');
 };
