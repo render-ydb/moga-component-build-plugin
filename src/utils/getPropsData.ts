@@ -6,7 +6,7 @@ const getPropsData = () => {
     let schema: Schema = {};
     const schemaIsExist = fse.existsSync(SCHEMA_PATH);
     if (schemaIsExist) {
-        schema = JSON.parse(fse.readFileSync(SCHEMA_PATH, { encoding: 'utf-8' }));
+        schema = JSON.parse(fse.readFileSync(SCHEMA_PATH, { encoding: "utf-8" }));
     }
     let schemaData = schema.properties ?? {};
     let PropsData: Record<string, any> = {};

@@ -2,7 +2,7 @@ import { Json } from "render-builder";
 
 interface SchemaProperty {
     [key: string]: {
-        type: string | 'color' | number | 'textArea' | 'select';
+        type: string | "color" | number | "textArea" | "select";
         required: boolean;
         value: any;
         mockValue: any;

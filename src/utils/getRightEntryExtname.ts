@@ -1,14 +1,14 @@
-import path = require('path');
-import glob = require('glob');
+import path = require("path");
+import glob = require("glob");
 import {
     REG_JS_INDEX,
     REG_SASS_INDEX,
     REG_LESS_INDEX,
 } from "../configs/reg";
-import { Json } from 'render-builder';
+import { Json } from "render-builder";
 
 export = (cwd: string) => {
-    const rootFilePaths = glob.sync('*', {
+    const rootFilePaths = glob.sync("*", {
         cwd,
     });
     const extNames: Json = {};

@@ -1,11 +1,11 @@
-import fs = require('fs');
+import fs = require("fs");
 import path = require("path");
 
 const getDemoEntryFilename = (projectDir: string) => {
-    let entryPath: string = '';
-    const searchFiless = ['tsx', 'jsx', 'js','ts'];
+    let entryPath: string = "";
+    const searchFiless = ["tsx", "jsx", "js","ts"];
     for (let i = 0; i < searchFiless.length; i++) {
-        const fileName = 'index.'+searchFiless[i];
+        const fileName = "index."+searchFiless[i];
         const searchPath = path.join(projectDir, fileName);
         if (fs.existsSync(searchPath)) {
             entryPath = fileName;
