@@ -1,4 +1,4 @@
-# render-build-react-component-plugin
+# moga-component-build-plugin
 
 #### Description
 基于render-builder封装的编译react组件的build-plugin

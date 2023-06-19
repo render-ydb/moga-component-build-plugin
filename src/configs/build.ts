@@ -1,13 +1,14 @@
 import setAssetsPath = require('../utils/setAssetsPath');
-import { Json } from 'render-builder';
 import Chain from 'webpack-chain';
 import path = require('path');
 import getDemoEntryFilename = require('../utils/getDemoEntryFilename');
+import { ConfigParams } from '../types';
 
-export = (config: Chain, options: Json) => {
+export = (config: Chain, options: ConfigParams) => {
     const { rootDir } = options;
-    const entryFileName = getDemoEntryFilename(path.resolve(rootDir as string, 'src'));
-    const entryPath = path.join(rootDir as string, 'src', entryFileName);
+    const appIndexPath = path.resolve(rootDir as string, 'src');
+    const entryFileName = getDemoEntryFilename(path.resolve(appIndexPath, 'src'));
+    const entryPath = path.join(appIndexPath, entryFileName);
     config.entryPoints.clear();
     config.merge({ entry: { index: entryPath } });
     setAssetsPath(config);

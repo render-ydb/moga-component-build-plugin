@@ -1,19 +1,12 @@
 import path = require('path');
 import { Json } from 'render-builder';
 import Chain from 'webpack-chain';
-
-
-interface BaseOptions  {
-  pkg: Json;
-  rootDir:string;
-  demoDir:string
-}
+import { ConfigParams } from '../types';
 
 export = (config: Chain, {
   pkg,
   rootDir,
-  demoDir
-}:BaseOptions) => {
+}:ConfigParams) => {
   config.target('web');
   config.context(rootDir);
 

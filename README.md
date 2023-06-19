@@ -1,17 +1,15 @@
-# render-build-react-component-plugin
+# moga-component-build-plugin
 
 ## 介绍
 基于render-builder封装的编译react组件的build-plugin
 
 ## 用法
 
-在根目录的中配置文件中（这里以build.config.ts为例）添加如下代码即可：
+在根目录的中配置文件中（这里以build.json为例）添加如下代码即可：
 
 ```
 export default {
-    plugins: [
-       [ 'render-build-react-component-plugin']
-    ]
+    plugins: ['moga-component-build-plugin']
 }
 ```
 
