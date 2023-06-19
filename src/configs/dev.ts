@@ -1,7 +1,6 @@
 import setAssetsPath = require('../utils/setAssetsPath');
-import { Json } from 'render-builder';
 import Chain from 'webpack-chain';
-import path = require('path');
+import resetStyle from '../utils/getResetStyle';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 import createDemoPathAndEntryPath = require('../utils/createDemoPathAndEntryPath');
 import { APP_DEMO_DIR_PATH } from '../const';
@@ -24,6 +23,9 @@ export = (config: Chain, options: ConfigParams) => {
                 ${htmlWebpackPlugin.tags.headTags}
                 ${headTags.join('\n')}
                 <title>Document</title>
+                <style>
+                ${resetStyle}
+                </style>
             </head>
             <body>
                 <div id="root"></div>
