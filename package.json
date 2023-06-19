@@ -1,6 +1,6 @@
 {
   "name": "moga-component-build-plugin",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "#### Description 基于render-builder封装的编译react组件的build-plugin",
   "main": "lib/index.js",
   "scripts": {
