@@ -6,9 +6,6 @@
         "moduleResolution": "node",
         "strict": true,
         "skipLibCheck": true,
-        "types": [
-            "node",
-        ],
         "allowJs": true,
         "outDir": "lib",
         "allowSyntheticDefaultImports": true,

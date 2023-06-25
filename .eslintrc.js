@@ -1,11 +1,8 @@
-module.exports = {
-    parser: "@typescript-eslint/parser",
-    parserOptions: {
-        ecmaVersion: 7,
-        sourceType: "module"
-    },
-    rules: {
-        "quotes":["error","double"]
-    },
-    plugins: ["@typescript-eslint/eslint-plugin"]
-}
+const { getESLintConfig } = require('moga-lint');
+
+module.exports = getESLintConfig('react-ts', {
+  rules: {
+    '@typescript-eslint/no-require-imports': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+  },
+});

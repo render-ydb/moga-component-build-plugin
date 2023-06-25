@@ -66,5 +66,5 @@ html {
     q:before, q:after, blockquote:before, blockquote:after {
     content:””;
     }
-`
+`;
 export default resetStyle;
