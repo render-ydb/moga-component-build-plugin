@@ -3,7 +3,6 @@ import path = require('path');
 import Chain from 'webpack-chain';
 import { ConfigParams } from '../types';
 import setPxToViewport = require('../utils/setPxToViewport');
-import TypeGenWebpackPlugin from 'type-gen-webpack-plugin';
 
 
 export = (config: Chain, {
@@ -12,9 +11,7 @@ export = (config: Chain, {
 }: ConfigParams) => {
   config.target('web');
   config.context(rootDir);
-  config
-    .plugin('TypeGenWebpackPlugin')
-    .use(TypeGenWebpackPlugin);
+
 
   config.resolve.modules
     .add('node_modules')
