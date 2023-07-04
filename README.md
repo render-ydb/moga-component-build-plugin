@@ -16,10 +16,10 @@ export default {
 ## 插件配置（options）
 moga-component-build-plugin配置如下：
 | 选项 | 作用 | 类型 | 默认值 |
-| --- | --- | --- | | --- |
-| headTags | 在开发moga-component时候，在插件提供的HTML文档的head节点中插入自定义代码，例如：<meta charset="UTF-8"> | Array<string> | | [''] |
-| bodyTags | 在开发moga-component时候，在插件提供的HTML文档的body节点中插入自定义代码，例如：<script>console.log(1)</script> | Array<string> | | [''] |
-| inlineStyle | 组件中使用样式是否内敛到js中。如果设置true，则不会生成对应的css文件，编译后的代码中会使用style-loader注入的代码，在html文档中使用style标签生成组件对应的css样式 | boolean | | false |
+| --- | --- | --- | --- |
+| headTags | 在开发moga-component时候，在插件提供的HTML文档的head节点中插入自定义代码，例如：<meta charset="UTF-8"> | Array<string> | [''] |
+| bodyTags | 在开发moga-component时候，在插件提供的HTML文档的body节点中插入自定义代码，例如：<script>console.log(1)</script> | Array<string> | [''] |
+| inlineStyle | 组件中使用样式是否内敛到js中。如果设置true，则不会生成对应的css文件，编译后的代码中会使用style-loader注入的代码，在html文档中使用style标签生成组件对应的css样式 | boolean | false |
 
 ## 功能介绍
 moga-component-build-plugin提供了非常多开箱即用的功能，具体如下：
